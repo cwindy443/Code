@@ -1,13 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
-struct Student {
-public:
-  int id;
-};
-int main() {
-  int *a;
-  cout << sizeof(a) << endl;
+int main(){
+  print("%d", 2);
   return 0;
 }
