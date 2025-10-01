@@ -15,24 +15,24 @@ int main(){
   }
   while(n > 0 && p){
     p--;
-    if(n - 3 != ng1 && n - 3 != ng2 && n - 3 != ng3){
+    if(n - 3 >= 0 && n - 3 != ng1 && n - 3 != ng2 && n - 3 != ng3){
       n -= 3;
     }
-    else if(n - 2 != ng1 && n - 2 != ng2 && n - 3 != ng3){
+    else if(n - 2 >= 0 && n - 2 != ng1 && n - 2 != ng2 && n - 2 != ng3){
       n -= 2;
     }
-    else if(n - 1 != ng1 && n - 1 != ng2 && n - 3 != ng3){
+    else if(n - 1 >= 0 && n - 1 != ng1 && n - 1 != ng2 && n - 1 != ng3){
       n -= 1;
     }
     else{
       break;
     }
+    if(n == 0){
+      cout << "YES" << endl;
+      return 0;
+    }
   }
-  if(n == 0){
-    cout << "YES" << endl;
-    return 0;
-  }
-  if(n > 0) cout << "NO" << endl;
-  cout << "YES" << endl;
+  cout << n << endl;
+  cout << "NO" << endl;
   return 0;
 }
