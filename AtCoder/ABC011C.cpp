@@ -32,7 +32,6 @@ int main(){
       return 0;
     }
   }
-  cout << n << endl;
   cout << "NO" << endl;
   return 0;
 }
