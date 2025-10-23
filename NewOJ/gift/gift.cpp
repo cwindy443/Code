@@ -25,18 +25,12 @@ signed main()
   sort(a + 1, a + 1 + n, cmp);
   sort(b + 1, b + 1 + m, cmp);
 
-  for (int i = 1; i <= n; i++)
-  {
-    for (int j = 1; j <= m; j++)
-    {
-      if (abs(a[i] - b[j]) <= d)
-      {
-        cout << a[i] + b[j] << endl;
-        return 0;
-      }
-    }
+  int idx = 1, idy = 1;
+  while(idx <= n && idy <= m){
+    if(idx > idy) idx++;
+    else idy++;
+    
   }
-  cout << -1 << endl;
 
   fclose(stdin);
   fclose(stdout);

@@ -3,6 +3,7 @@
 using namespace std;
 
 int n, m, k, Q;
+int dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};
 vector<vector<char>> mp;
 vector<vector<int>> vis;
 
@@ -32,6 +33,15 @@ int main()
     int x1, y1, x2, y2;
     cin >> x1 >> y1 >> x2 >> y2;
     q.push({x1, y1});
+  }
+
+  while(!q.empty()){
+    auto np = q.front();
+    q.pop();
+    for(int i = 0; i < 4; i++){
+      int nx = np.first + dx[i], ny = np.second + dy[i];
+      
+    }
   }
 
   fclose(stdin);
