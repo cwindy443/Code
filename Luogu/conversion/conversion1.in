@@ -1,0 +1,6 @@
+0 5
+char
+int+bool
+float*int+longlong
+int+char*bool+double
+float+bool*double,int*longlong+char

@@ -6,6 +6,11 @@ int n, m, k, Q;
 int dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};
 vector<vector<char>> mp;
 vector<vector<int>> vis;
+struct portal{
+  int sx, sy;
+  int ex, ey;
+};
+vector<vector<portal>> prl;
 
 int main()
 {
@@ -18,14 +23,16 @@ int main()
     for (int j = 1; j <= m; j++)
     {
       cin >> mp[i][j];
+      if (mp[i][j] == '#') {
+        vis[i][j] = 1;
+      }
     }
   }
   for (int i = 1; i <= k; i++)
   {
     int x1, y1, x2, y2;
     cin >> x1 >> y1 >> x2 >> y2;
-    vis[x1][y1];
-    vis[x2][y2];
+
   }
   queue<pair<int, int>> q;
   for (int i = 1; i <= Q; i++)
@@ -40,7 +47,8 @@ int main()
     q.pop();
     for(int i = 0; i < 4; i++){
       int nx = np.first + dx[i], ny = np.second + dy[i];
-      
+      if(nx < 1 || nx > n || ny < 1 || ny > m) continue;
+
     }
   }
 
