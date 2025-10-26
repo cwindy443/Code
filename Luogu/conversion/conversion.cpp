@@ -5,7 +5,6 @@
 
 using namespace std;
 
-const int N = 1e5 + 5;
 int c, T;
 vector<string> a;
 
@@ -14,7 +13,7 @@ int main(){
   freopen("conversion.out", "w", stdout);
 
   cin >> c >> T;
-  while(T--){
+  while(T--) {
     string s;
     cin >> s;
     for(int i = s.size() - 1; i >= 0; i--){
@@ -24,7 +23,7 @@ int main(){
       }
     }
     int pre = 0;
-    for(int i = 0; i < s.size(); i++){
+    for(int i = 0; i < s.size(); i++) {
       if(s[i] == '*' || s[i] == '+'){
         a.push_back(s.substr(pre, i - pre));
         pre = i + 1;
@@ -79,7 +78,6 @@ int main(){
     }
     for(auto it = a.begin(); it != a.end(); it++) cout << *it << endl;
   }
-
   fclose(stdin);
   fclose(stdout);
   return 0;
