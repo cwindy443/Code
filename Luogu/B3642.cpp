@@ -10,32 +10,42 @@ struct Node{
   int l, r;
 };
 
-std::pmr::vector<Node> point;
+std::vector<Node> tree;
 
-void front(){
-  
+void preOrder(int root){
+  if(root == 0) return;
+  cout << root << " ";
+  preOrder(tree[root].l);
+  preOrder(tree[root].r);
 }
 
-void middle(){
-
+void inOrder(int root){
+  if(root == 0) return;
+  inOrder(tree[root].l);
+  cout << root << " ";
+  inOrder(tree[root].r);
 }
 
-void back(){
-
+void postOrder(int root){
+  if(root == 0) return;
+  postOrder(tree[root].l);
+  postOrder(tree[root].r);
+  cout << root << " ";
 }
 
 int main(){
   cin >> n;
+  tree.resize(n + 1);
   for(int i = 1; i <= n; i++){
     int left, right;
     cin >> left >> right;
-    point.push_back({left, right});
+    tree[i] = {left, right};
   }
-  front();
+  preOrder(1);
   cout << endl;
-  middle();
+  inOrder(1);
   cout << endl;
-  back();
+  postOrder(1);
   cout << endl;
   return 0;
 }
