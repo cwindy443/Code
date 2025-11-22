@@ -1,6 +1,6 @@
 #include <iostream>
 
-int n, m;
+int n, d;
 
 struct edge{
   int y, v, next;
@@ -15,13 +15,13 @@ inline void addEdge(int x, int y){
   head[x] = len;
 }
 
-void dfs(int x){
+void bfs(int x){
   
 }
 
 int main(){
-  std::cin >> n >> m;
-  for(int i = 1; i <= m; i++){
+  std::cin >> n >> d;
+  for(int i = 1; i < n; i++){
     int x, y;
     std::cin >> x >> y;
     addEdge(x, y);
