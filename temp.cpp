@@ -1,17 +1,26 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
 
-using namespace std;
+int n, m;
 
-int main(){
-  vector<int> a={1, 2, 3};
-  do{
-    for(int num : a){
-      cout << num << " ";
-    }
-    cout << endl;
-  }while(next_permutation(a.begin(), a.end()));
-  return 0;
+struct edge{
+  int y, v, next;
+}e[200005];
+
+int len = 0;
+int head[1005];
+
+inline void addEdge(int x, int y){
+  e[++len].y = y;// save the data of new edge
+  e[len].next = head[x]; //head-insertion: point new edge to head[x]
+  head[x] = len;
 }
 
+int main(){
+  std::cin >> n >> m;
+  for(int i = 1; i <= m; i++){
+    int x, y;
+    std::cin >> x >> y;
+    addEdge(x, y);
+    addEdge(y, x);
+  }
+}
