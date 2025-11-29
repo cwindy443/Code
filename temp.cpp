@@ -16,7 +16,7 @@ inline void addEdge(int x, int y){
 }
 
 void dfs(int x){
-
+  
 }
 
 int main(){
@@ -25,7 +25,6 @@ int main(){
     int x, y;
     std::cin >> x >> y;
     addEdge(x, y);
-
     addEdge(y, x);
   }
 }
