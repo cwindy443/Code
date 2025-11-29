@@ -1,8 +1,8 @@
-#include <bits/stdc++.h>
+#include <i
 
 using namespace std;
 
-int main(){
+int main() {
   int n;
   cin >> n;
   for (int i = 1; i <= n; i++) {
@@ -11,4 +11,3 @@ int main(){
 
   return 0;
 }
-
