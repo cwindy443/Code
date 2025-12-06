@@ -1,44 +1,73 @@
 #include <iostream>
 #include <queue>
 #include <utility>
+#include <vector>
 
 #define ll long long
 
 struct Node
 {
-  ll v;
-  ll dep;
-  bool operator<(const Node &y) const{
-    return v > y.v;
+  ll w;
+  int h;
+
+  bool operator>(const Node& other) const {
+    if (w != other.w) {
+        return w > other.w;
+    }
+    return h > other.h;
   }
 };
 
-std::priority_queue<Node> q;
-int n, k;
+std::priority_queue<Node, std::vector<Node>, std::greater<Node>> pq;
+int n;
+int k;
 
 signed main(){
+  std::ios_base::sync_with_stdio(false);
   std::cin.tie(nullptr);
-  std::cin.sync_with_stdio(false);
 
   std::cin >> n >> k;
-  for(int i = 1; i <= n; i++){
+  for(int i = 0; i < n; i++){
     ll x;
     std::cin >> x;
-    q.push({x, 0});
+    pq.push({x, 1});
   }
-  while((q.size() - 1) % (k - 1) != 0) q.push({0, 0});
 
-  ll ans = 0;
-  while(!(q.size() == 1)){
-    for(int i = 1; i <= k; i++){
-      ll x, y;
-      x = q.top().v; q.pop();
-      y = q.top().v; q.pop();
-      q.push({x + y, i});
+  if (n == 1) {
+      std::cout << 0 << std::endl;
+      std::cout << 0 << std::endl;
+      return 0;
+  }
+
+  if (k == 1) {
+      return 1;
+  }
+
+  while ((pq.size() - 1) % (k - 1) != 0) {
+      pq.push({0, 0});
+  }
+
+  ll total_cost = 0;
+
+  while (pq.size() > 1) {
+    ll combined_w = 0;
+    int max_h = 0;
+
+    for (int i = 0; i < k; ++i) {
+      Node node = pq.top();
+      pq.pop();
+      combined_w += node.w;
+      if (node.h > max_h) {
+        max_h = node.h;
+      }
     }
+
+    total_cost += combined_w;
+    pq.push({combined_w, max_h + 1});
   }
 
-  std::cout << q.top().v << std::endl;
+  std::cout << total_cost << std::endl;
+  std::cout << pq.top().h - 1 << std::endl;
 
   return 0;
 }
