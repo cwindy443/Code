@@ -18,6 +18,7 @@ void dfs(int x) {
 }
 
 int main() {
+  // fast I/O
   std::cin.tie(nullptr);
   std::cin.sync_with_stdio(false);
   std::cout.sync_with_stdio(false);
