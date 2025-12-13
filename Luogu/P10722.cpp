@@ -18,6 +18,10 @@ void dfs(int x) {
 }
 
 int main() {
+  std::cin.tie(nullptr);
+  std::cin.sync_with_stdio(false);
+  std::cout.sync_with_stdio(false);
+
   std::cin >> n;
   for (int i = 2; i <= n; i++) {
     int num;
