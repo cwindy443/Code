@@ -1,56 +1,52 @@
 #include <iostream>
+#include <vector>
 #include <algorithm>
-typedef long long ll;
 
-const int NM = 1e5 + 5;
-int n, m, x;
+using namespace std;
 
-struct Node {
-  int p, c;
-}trans[NM];
+struct Station {
+    int p, c;
+};
 
-struct Truck {
-  int a, b, diff;
-}truck[NM];
-
-bool cmp1(Node x, Node y) {
-  return x.p < y.p;
-}
-
-bool cmp2(Truck x, Truck y) {
-  return x.diff > y.diff;
+bool compareStations(const Station& a, const Station& b) {
+    return a.p < b.p;
 }
 
 int main() {
-  std::cin.tie(nullptr);
-  std::cin.sync_with_stdio(false);
-  std::cout.sync_with_stdio(false);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-  std::cin >> n >> m >> x;
-  for(int i = 1; i <= n; i++) {
-    std::cin >> trans[i].p >> trans[i].c;
-  }
-  std::sort(trans + 1, trans + 1 + n, cmp1);
+    int n, m;
+    long long x;
+    cin >> n >> m >> x;
 
-  int tot = 0;
-  for(int i = 1; i <= m; i++) {
-    std::cin >> truck[i].a >> truck[i].b;
-    truck[i].diff = std::abs(truck[i].a - truck[i].b);
-    tot += 2 * truck[i].b * x;
-  }
-  std::sort(truck + 1, truck + 1 + m, cmp2);
- 
-  ll min_dynamic = 0;
-  int station_idx = 0;
-  for (int i = 0; i < m; ++i) {
-      // 找到还有容量的站点
-      while (stations[station_idx].c == 0) {
-        station_idx++;
-      }
-      min_dynamic += 2LL * stations[station_idx].p * w[i];
-      stations[station_idx].c--;
-  }
+    vector<Station> stations(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> stations[i].p >> stations[i].c;
+    }
+    sort(stations.begin(), stations.end(), compareStations);
 
-  std::cout << min_dynamic + total_constant << std::endl;
-  return 0;
+    vector<long long> w(m);
+    long long total_constant = 0;
+    for (int i = 0; i < m; ++i) {
+        long long a, b;
+        cin >> a >> b;
+        w[i] = a - b;
+        total_constant += 2 * b * x;
+    }
+    sort(w.begin(), w.end(), greater<long long>());
+
+    long long min_dynamic = 0;
+    int station_idx = 0;
+    for (int i = 0; i < m; ++i) {
+        while (stations[station_idx].c == 0) {
+            station_idx++;
+        }
+        min_dynamic += 2LL * stations[station_idx].p * w[i];
+        stations[station_idx].c--;
+    }
+
+    cout << min_dynamic + total_constant << endl;
+
+    return 0;
 }
