@@ -4,6 +4,10 @@ const int N = 305;
 int n, q;
 int f[N];
 
+class Student{
+  
+}
+
 int main() {
   std::ios::sync_with_stdio(false);
   std::cin.tie(nullptr);

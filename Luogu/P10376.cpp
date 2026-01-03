@@ -18,6 +18,10 @@ int dp[N];
 int main() {
   std::cin >> n >> a >> b >> c;
   
+  if(n == c) {
+    std::cout << 1 << std::endl;
+    return 0;
+  }
   dp[1] = 1;
   for(int i = 1; i <= n; i++) {
     dp[i + a] = dp[i + a] + a;
