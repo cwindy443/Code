@@ -10,7 +10,12 @@ int main() {
   while(T--) {
     int n, m, k;
     std::cin >> n >> m >> k;
-    f
+    if(n == 1) {
+      std::cout << 0 << std::endl;
+      continue;
+    }
+    else {
+    }
   }
   return 0;
 }
