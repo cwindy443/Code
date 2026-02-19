@@ -1,3 +1,2 @@
-# My Codes
+# Solutions to problems in different OI platform
 
-## (These codes won't be updating as usual since I've already retired from the OI)
